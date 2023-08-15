@@ -1,0 +1,21 @@
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 60px;
+  flex-shrink: 0;
+  border-radius: 7px;
+  border: 1px solid #bb65ff;
+  box-shadow: 0px 0px 6px 0px rgba(189, 189, 255, 0.6) inset,
+    0px 5px 10px 0px rgba(100, 41, 205, 0.6);
+  cursor: pointer;
+
+  &__content {
+    color: #fff;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 140%; /* 19.6px */
+  }
+}

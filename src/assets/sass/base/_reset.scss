@@ -1,0 +1,34 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+form,
+input,
+button {
+  font-family: inherit;
+  font-size: inherit;
+  background-color: transparent;
+}
+
+svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+
+body {
+  min-height: 100vh;
+  font-size: 100%;
+  font-family: $font;
+}

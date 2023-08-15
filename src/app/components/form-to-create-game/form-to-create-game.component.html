@@ -1,0 +1,55 @@
+<section class="app-section">
+  <section class="logo">
+    <img class="logo__image" src="../../../assets/img/ficha.svg" alt="">
+    <p class="logo__text">Crear partida</p>
+  </section>
+
+
+  <form class="form" [formGroup]="formToCreateGame" (ngSubmit)="captureData()">
+    <label class="form__label">
+      Nombre de la partida:
+      <input class="form__input" formControlName="name" />
+    </label>
+
+    <button
+      class="form__button"
+      type="submit"
+      [ngClass]="{
+        'form__button-valid': formToCreateGame.valid,
+        'form__button-disabled': !formToCreateGame.valid
+      }"
+      (click)="openModal()"
+    >
+      Crear partida
+    </button>
+    <p
+      class="form__error"
+      *ngIf="formToCreateGame.get('name')?.touched && formToCreateGame.get('name')?.errors?.['required']"
+    >
+      El nombre es obligatorio
+    </p>
+    <p
+      class="form__error"
+      *ngIf="formToCreateGame.get('name')?.errors?.['minlength']"
+    >
+      El nombre debe tener al menos
+      {{formToCreateGame.get('name')?.errors?.['minlength']?.requiredLength}}
+      caracteres.
+    </p>
+    <p
+      class="form__error"
+      *ngIf="formToCreateGame.get('name')?.errors?.['maxlength']"
+    >
+      El nombre debe tener máximo
+      {{formToCreateGame.get('name')?.errors?.['maxlength']?.requiredLength}}
+      caracteres
+    </p>
+    <p
+      class="form__error"
+      *ngIf="formToCreateGame.get('name')?.errors?.['pattern']"
+    >
+      El nombre no puede tener solo números y debe tener máximo 3 números
+    </p>
+  </form>
+</section>
+<app-form-person *ngIf="show"></app-form-person>

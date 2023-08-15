@@ -1,0 +1,97 @@
+<!-- <section class="app-section">
+  <section class="logo">
+    <img class="logo__image" src="../../../assets/img/ficha.svg" alt="" />
+    <p class="logo__text">{{ inputCreateGame }}</p>
+
+
+    <section class="logo__info">
+      <span class="logo__info-text">{{  inputCreatePlayer.slice(0,2) }}</span>
+      <button class="logo__info-button">Invitar jugadores</button>
+    </section>
+  </section>
+
+  <section class="table__main-container">
+    <section class="table__container">
+      <section class="table__container-one">
+        <section class="table__container-two"></section>
+      </section>
+    </section>
+    <section class="table__name-container">
+      <section class="table__name-container-compact">
+        <span>{{  inputCreatePlayer.slice(0,2) }}</span>
+      </section>
+      <section class="table__name-container-full">
+        <h4>{{  inputCreatePlayer }}</h4>
+      </section>
+    </section>
+  </section>
+  <section *ngIf="isPlayer" class="player-cards">
+    <h4>Cartas jugador</h4>
+  </section>
+  <section *ngIf="!isPlayer" class="espectador-cards">
+    <h4>Cartas espectador</h4>
+  </section>
+</section> -->
+
+<!-- <section [ngClass]="isPlayer ? 'player-content' : 'spectator-content'"> -->
+<section class="app-section">
+  <section class="logo">
+    <img class="logo__image" src="../../../assets/img/ficha.svg" alt="" />
+    <p class="logo__text">{{ inputCreateGame }}</p>
+
+    <section class="logo__info">
+      <span class="logo__info-text">{{ inputCreatePlayer.slice(0, 2) }}</span>
+      <button class="logo__info-button">Invitar jugadores</button>
+    </section>
+  </section>
+
+  <!-- Contenido específico para jugador -->
+  <section *ngIf="isPlayer" class="table__main-container">
+    <section class="table__player-container">
+      <section class="table__player-container-compact">
+        <span>{{ inputCreatePlayer.slice(0, 2) }}</span>
+      </section>
+    </section>
+
+    <section class="table__section">
+      <section class="table__container">
+        <section class="table__container-one">
+          <section class="table__container-two"></section>
+        </section>
+      </section>
+    </section>
+
+    <section class="table__card-container">
+      <app-card></app-card>
+      <section class="table__card-container-text">
+        <h4>{{ inputCreatePlayer }}</h4>
+      </section>
+      <section class="card__choice">
+        <p class="card__choice-text">Elige una carta 🥸</p>
+        <section class="card__choice-cards">
+          <app-card *ngFor="let card of cards" [value]="card.value"></app-card>
+        </section>
+
+      </section>
+    </section>
+
+  </section>
+
+  <!-- Contenido específico para espectador -->
+  <section *ngIf="!isPlayer" class="table__main-container">
+    <section class="table__container">
+      <section class="table__container-one">
+        <section class="table__container-two"></section>
+      </section>
+    </section>
+    <section class="table__name-container">
+      <section class="table__name-container-compact">
+        <span>{{ inputCreatePlayer.slice(0, 2) }}</span>
+      </section>
+      <section class="table__name-container-full">
+        <h4>{{ inputCreatePlayer }}</h4>
+      </section>
+    </section>
+  </section>
+</section>
+

@@ -1,0 +1,72 @@
+<section class="container">
+  <form class="modal__form" [formGroup]="formPerson" (ngSubmit)="submitForm()">
+    <label class="modal__form-label">
+      Nombre:
+      <input type="text" class="modal__form-input" formControlName="name"/>
+    </label>
+
+    <section class="modal__form-checkboxes">
+      <section class="modal__form-checkboxes-container">
+        <label class="modal__form-checkboxes-label"> Jugador </label>
+        <input
+          type="checkbox"
+          class="modal__form-checkboxes-input"
+          formControlName="isPlayer"
+
+        />
+      </section>
+      <section class="modal__form-checkboxes-container">
+        <label class="modal__form-checkboxes-label"> Espectador </label>
+        <input
+          type="checkbox"
+          class="modal__form-checkboxes-input"
+          formControlName="isAdmin"
+
+        />
+      </section>
+    </section>
+
+    <button
+      type="submit"
+      class="modal__form-button"
+      [ngClass]="{
+        'modal__form-button-valid': formPerson.valid,
+        'modal__form-button-disabled': !formPerson.valid
+      }"
+
+    >
+      Continuar
+    </button>
+    <p
+      class="modal__form-label-text"
+      *ngIf="formPerson.get('name')?.touched && formPerson.get('name')?.errors?.['required']"
+    >
+      El nombre es obligatorio
+    </p>
+    <p
+      class="modal__form-label-text"
+      *ngIf="formPerson.get('name')?.errors?.['minlength']"
+    >
+      El nombre debe tener al menos
+      {{formPerson.get('name')?.errors?.['minlength']?.requiredLength}}
+      caracteres.
+    </p>
+    <p
+      class="modal__form-label-text"
+      *ngIf="formPerson.get('name')?.errors?.['maxlength']"
+    >
+      El nombre debe tener máximo
+      {{formPerson.get('name')?.errors?.['maxlength']?.requiredLength}}
+      caracteres
+    </p>
+
+    <p
+      class="modal__form-label-text"
+      *ngIf="formPerson.get('name')?.errors?.['pattern']"
+    >
+      El nombre no puede tener solo números y debe tener máximo 3 números
+    </p>
+
+  </form>
+
+</section>
