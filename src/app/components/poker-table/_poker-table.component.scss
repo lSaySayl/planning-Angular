@@ -177,16 +177,6 @@
   justify-content: center;
   height: 100vh;
   width: 100vw;
-
-  /* Estilos de contenido de jugador */
-  &.player-content {
-    // ... estilos específicos para contenido de jugador ...
-  }
-
-  /* Estilos de contenido de espectador */
-  &.spectator-content {
-    // ... estilos específicos para contenido de espectador ...
-  }
 }
 
 /* Estilos de logo */
@@ -245,6 +235,14 @@
 
 /* Estilos de contenedor table*/
 .table {
+  position: relative;
+  &__main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100vw;
+  }
 
   &__section {
     display: flex;
@@ -288,11 +286,13 @@
     }
   }
 
+  &__no-cards-message {
+    position: absolute;
+    top: 41%;
+    left: 45%;
+    color: #c686f7;
+  }
 }
-
-
-
-
 
 /* Estilos de nombres de jugadores */
 .table__name-container {
@@ -393,5 +393,80 @@
     display: flex;
     align-items: center;
     gap: 30px;
+
+    &-random {
+      &:hover {
+        transition: 0.3s ease-in-out;
+        transform: scale(1.1);
+        border-radius: 7px;
+        background: #e4a4ff;
+        box-shadow: 0px 0px 20px 0px rgba(189, 189, 255, 0.2) inset,
+          0px 0px 15px 0px #6429cd;
+        color: #330072;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 100%; /* 16px */
+      }
+    }
   }
 }
+
+//Estilos para las cartas en mesa redonda
+
+.card {
+  &-1 {
+    position: absolute;
+    left: 30%;
+    top: 39.1%;
+    background-color: #c686f7;
+  }
+
+  &-2 {
+    position: absolute;
+    left: 39.1%;
+    top: 65%;
+    background-color: #c686f7;
+  }
+
+  &-3 {
+    position: absolute;
+    left: 69%;
+    top: 39.1%;
+    background-color: #c686f7;
+  }
+
+  &-4 {
+    position: absolute;
+    left: 59.1%;
+    top: 65%;
+    background-color: #c686f7;
+  }
+
+  /* Cartas superiores */
+
+  &-5 {
+    position: absolute;
+    left: 59.1%;
+    top: 16%;
+    background-color: #c686f7;
+  }
+
+  &-6 {
+    position: absolute;
+    left: 39.1%;
+    top: 16%;
+    background-color: #c686f7;
+  }
+
+  &-7 {
+    position: absolute;
+    left: 49.1%;
+    top: 16%;
+    background-color: #c686f7;
+    color: transparent;
+  }
+}
+
+
+

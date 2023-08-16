@@ -47,10 +47,25 @@
 
   <!-- Contenido específico para jugador -->
   <section *ngIf="isPlayer" class="table__main-container">
+    <ng-container *ngIf="selectedCards.length > 0; else noCardsMessage">
+      <ng-container *ngFor="let card of selectedCards; let i = index">
+        <app-card
+          [card]="card"
+          [ngClass]="calculateCardClass(i + 1)"
+        ></app-card>
+      </ng-container>
+      <!-- Revisar esta parte, pero no deberia ser así. -->
+    </ng-container>
+    <ng-template #noCardsMessage>
+      <!-- Mostrar el mensaje "No hay cartas registradas" -->
+      <p class="table__no-cards-message">No hay cartas registradas</p>
+    </ng-template>
+
     <section class="table__player-container">
       <section class="table__player-container-compact">
         <span>{{ inputCreatePlayer.slice(0, 2) }}</span>
       </section>
+
     </section>
 
     <section class="table__section">
@@ -62,23 +77,35 @@
     </section>
 
     <section class="table__card-container">
-      <app-card></app-card>
       <section class="table__card-container-text">
         <h4>{{ inputCreatePlayer }}</h4>
       </section>
       <section class="card__choice">
         <p class="card__choice-text">Elige una carta 🥸</p>
         <section class="card__choice-cards">
-          <app-card *ngFor="let card of cards" [value]="card.value"></app-card>
+          <!-- Vincular las cartas disponibles con *ngFor -->
+          <app-card class="card__choice-cards-random"
+            *ngFor="let card of cards"
+            [card]="card"
+            (click)="chooseCard(card)"
+          ></app-card>
         </section>
-
       </section>
     </section>
-
   </section>
 
   <!-- Contenido específico para espectador -->
-  <section *ngIf="!isPlayer" class="table__main-container">
+  <!-- Quitar ! para que se reflejen en la misma pantalla -->
+  <section *ngIf="!isPlayer" class="table__main">
+    <section class="table__main-container">
+      <ng-container *ngFor="let card of selectedCards; let i = index">
+        <app-card
+          [card]="card"
+          [ngClass]="calculateCardClass(i + 1)"
+        ></app-card>
+      </ng-container>
+    </section>
+
     <section class="table__container">
       <section class="table__container-one">
         <section class="table__container-two"></section>
@@ -94,4 +121,3 @@
     </section>
   </section>
 </section>
-

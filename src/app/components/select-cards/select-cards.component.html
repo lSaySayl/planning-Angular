@@ -1,0 +1,37 @@
+<section class="table__main">
+  <section class="table__main-container"></section>
+
+  <section class="table__container">
+    <section class="table__container-one">
+      <section class="table__container-two"></section>
+    </section>
+  </section>
+  <section class="table__name-container">
+    <section class="table__name-container-compact">
+      <span></span>
+    </section>
+    <section class="table__name-container-full">
+      <h4></h4>
+    </section>
+  </section>
+</section>
+
+<div class="selected-card" *ngFor="let card of selectedCards$ | async">
+  <p [ngClass]="{ 'revealed-style': isRevealed }">Valor: {{ card.value }}</p>
+</div>
+
+<div>
+  <button (click)="toggleButton()" *ngIf="!isGameStarted">
+    Cambiar Estilo
+  </button>
+  <button (click)="toggleButton()" *ngIf="isGameStarted">
+    Reiniciar Partida
+  </button>
+  <div *ngIf="isWaiting">Espere, por favor...</div>
+</div>
+
+<div *ngIf="isRevealed && cardCounts.length > 0">
+  <p *ngFor="let card of cardCounts">
+    {{ "La cantidad de cartas " + card.key + " fueron " + card.value }}
+  </p>
+</div>

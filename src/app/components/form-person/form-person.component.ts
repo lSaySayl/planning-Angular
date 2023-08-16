@@ -37,10 +37,17 @@ export class FormPersonComponent {
     if (this.formPerson.valid) {
       const inputValue = this.formPerson.get('name')?.value;
       this.shareDataService.setInputCreatePlayer(inputValue);
-      this.shareDataService.setIsPlayer(this.formPerson.get('isPlayer')?.value);
-      console.log(inputValue)
 
-      // Después de establecer el valor, navegar a la siguiente ruta
+      // Verificar si es administrador y establecer el rol correspondiente
+      const isAdmin = this.formPerson.get('isAdmin')?.value;
+      const isPlayer = isAdmin ? false : this.formPerson.get('isPlayer')?.value;
+      this.shareDataService.setIsPlayer(isPlayer);
+
+      console.log(`Nombre: ${inputValue}`);
+      console.log(`Es administrador: ${isAdmin}`);
+      console.log(`Es jugador: ${isPlayer}`);
+
+      // Después de establecer los valores, navegar a la siguiente ruta
       this.router.navigate(['/table']);
     }
   }
