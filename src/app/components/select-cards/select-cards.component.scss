@@ -51,33 +51,37 @@
   }
 }
 
-.selected-card {
-  width: 100vw;
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
-  width: 35px;
-  height: 60px;
-  flex-shrink: 0;
-  border-radius: 7px;
-  border-radius: 7px;
-  border: 1px solid #bb65ff;
-  background: #bb65ff;
-  box-shadow: 0px 0px 6px 0px rgba(189, 189, 255, 0.6) inset,
-    0px 5px 10px 0px rgba(100, 41, 205, 0.6);
-  cursor: pointer;
-
-  &-content {
-    color:white;
-
-  }
-
-  .revealed-style {
-    background-color: lightblue;
-    color: darkblue;
-  }
+.revealed-style {
+  background-color: lightblue;
+  color: darkblue;
 }
 
 .cambiar {
   color: wheat;
+}
+
+.selected-card-content {
+  width: 35px;
+  height: 60px;
+  border-radius: 7px;
+  border: 1px solid #bb65ff;
+  background:  #bb65ff;
+  color: #bb65ff;
+
+  /* inner + shadow/04 */
+  box-shadow: 0px 0px 6px 0px rgba(189, 189, 255, 0.6) inset,
+    0px 5px 10px 0px rgba(100, 41, 205, 0.6);
+}
+
+// Estilo para cuando la carta está revelada
+.revealed-style {
+  color: red;
+  background-color: yellow;
+}
+
+// Estilos personalizados para cada carta basados en las clases generadas
+.card-1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
 }

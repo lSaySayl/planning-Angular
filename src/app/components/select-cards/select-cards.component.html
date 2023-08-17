@@ -16,8 +16,8 @@
   </section>
 </section>
 
-<div class="selected-card" *ngFor="let card of selectedCards$ | async">
-  <p class="selected-card-content" [ngClass]="{ 'revealed-style': isRevealed }">{{ card.value }}</p>
+<div class="selected-card" *ngFor="let card of selectedCards$ | async; let i = index">
+  <p class="selected-card-content {{ generateCardClass(i) }}" [class.revealed-style]="isRevealed">{{ card.value }}</p>
 </div>
 
 <div>
