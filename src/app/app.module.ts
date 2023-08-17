@@ -17,7 +17,6 @@ import { StoreModule } from '@ngrx/store';
 import { cardReducer } from './state/reducers/card.reducers';
 import { SelectCardsComponent } from './components/select-cards/select-cards.component';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { EffectsModule } from '@ngrx/effects';
 
 
 @NgModule({
@@ -39,7 +38,6 @@ import { EffectsModule } from '@ngrx/effects';
     MatButtonModule,
     StoreModule.forRoot({ 'cardReducer':cardReducer }),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
-    EffectsModule.forRoot([]), //Importando ngrx
   ],
 
   providers: [],

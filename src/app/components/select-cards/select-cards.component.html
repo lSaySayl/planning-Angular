@@ -17,11 +17,11 @@
 </section>
 
 <div class="selected-card" *ngFor="let card of selectedCards$ | async">
-  <p [ngClass]="{ 'revealed-style': isRevealed }">Valor: {{ card.value }}</p>
+  <p class="selected-card-content" [ngClass]="{ 'revealed-style': isRevealed }">{{ card.value }}</p>
 </div>
 
 <div>
-  <button (click)="toggleButton()" *ngIf="!isGameStarted">
+  <button class="cambiar" (click)="toggleButton()" *ngIf="!isGameStarted">
     Cambiar Estilo
   </button>
   <button (click)="toggleButton()" *ngIf="isGameStarted">

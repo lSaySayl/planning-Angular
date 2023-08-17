@@ -58,6 +58,12 @@ export class SelectCardsComponent implements OnInit {
     }, 2000);
   }
 
+  //función para clases dinamicas:
+
+  generateSelectedCardClass(index: number): string {
+    return `selected-card-${index + 1}`;
+  }
+
 
 
 }
