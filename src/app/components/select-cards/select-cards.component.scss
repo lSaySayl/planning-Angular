@@ -1,10 +1,68 @@
+.admin__section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.logo {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+
+  &__text {
+    color: #fff;
+    font-family: Poppins;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 700;
+    margin-left: 10%;
+  }
+
+  &__info {
+    min-width: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    &-text {
+      padding: 10px;
+      border-radius: 50%;
+      background: #bdbdff;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 18px;
+      color: #330072;
+      line-height: 140%;
+      text-transform: uppercase;
+    }
+
+    &-button {
+      color: #f6f7fc;
+      text-align: center;
+      font-family: Poppins;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 140%;
+      padding: 5px 10px;
+      border-radius: 50px;
+      border: 1px solid #f6f7fc;
+    }
+  }
+}
+
 .table {
-  position: relative;
   &__main {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    height: 70%;
     width: 100vw;
   }
 
@@ -36,15 +94,14 @@
       width: 555px;
       height: 298px;
       border: 2px solid #6429cd;
-      filter: drop-shadow(0px 12px 24px rgba(100, 41, 205, 0.6));
+      box-shadow: inset 0px 0px 20px rgba(189, 189, 255, 0.082);
       border-radius: 276px;
     }
 
     &-two {
+      position: relative;
       width: 521px;
       height: 272px;
-      left: 479px;
-      top: 324px;
       border: 2px solid #6429cd;
       border-radius: 276px;
     }
@@ -56,16 +113,13 @@
   color: darkblue;
 }
 
-.cambiar {
-  color: wheat;
-}
 
 .selected-card-content {
   width: 35px;
   height: 60px;
   border-radius: 7px;
   border: 1px solid #bb65ff;
-  background:  #bb65ff;
+  background: #bb65ff;
   color: #bb65ff;
 
   /* inner + shadow/04 */
@@ -80,8 +134,136 @@
 }
 
 // Estilos personalizados para cada carta basados en las clases generadas
+.card-0 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
 .card-1 {
   position: absolute;
   top: 50%;
   left: 50%;
+}
+
+.card-2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.card-3 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.card-4 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.card-5 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.card-6 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+/* .votos {
+  top: 39%;
+  left: 47%;
+  position: relative;
+} */
+
+
+.cambiar {
+  position:absolute;
+  top: 45%;
+  left: 31%;
+  height: 40px;
+  width: 200px;
+  padding: 0px 24px;
+  border-radius: 50px;
+  background: #6429cd;
+  color: white;
+  cursor: pointer;
+
+  &:hover {
+
+    transition: ease-in-out 0.3s;
+    transform: scale(1.1);
+
+  }
+}
+
+.count__card {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  width: 100vw;
+}
+
+.cards__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 90px;
+  border-radius: 7px;
+  border: 1px solid #6429cd;
+  box-shadow: 0px 0px 6px 0px rgba(189, 189, 255, 0.6) inset,
+    0px 5px 10px 0px rgba(100, 41, 205, 0.6);
+
+  &__value {
+    color: #fff;
+    font-size: 21px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 140%; /* 29.4px */
+  }
+
+  &__count {
+    color: #fff;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%; /* 22.4px */
+  }
+}
+
+.average {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: 40px;
+  &__text {
+    color: #fff;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%; /* 22.4px */
+  }
+
+  &__value {
+    color: #fff;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 100%; /* 36px */
+  }
 }
