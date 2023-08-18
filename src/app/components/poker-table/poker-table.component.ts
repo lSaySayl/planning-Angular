@@ -63,19 +63,27 @@ export class PokerTableComponent {
   //Función para seleccionar cartas en la parte de jugadores y luego redirigir a lo que sería el admin.
 
   chooseCard(chosenCard: Card) {
-    /* chosenCard.ownerId = this.inputCreatePlayer; */
-    this.selectedCards.push(chosenCard); // Almacenar la carta seleccionada en el estado
-    this.store.dispatch(updateCard({ card: chosenCard })); //Despachamos
-    console.log('Cartas seleccionadas:', this.selectedCards);
-    if (this.selectedCards.length === 7) {
-      this.router.navigate(['/admin']);
+    if (this.selectedCards.length < 7) {
+      this.selectedCards.push(chosenCard); // Almacenar la carta seleccionada en el estado
+      this.store.dispatch(updateCard({ card: chosenCard })); //Despachamos
+      console.log('Cartas seleccionadas:', this.selectedCards);
+
+      setTimeout(() => {
+        if (this.selectedCards.length == 7) {
+          this.router.navigate(['/admin']);
+        }
+      }, 4000);
     }
   }
-
 
   //Clase dinámica para las cartas en mesa redonda para jugador
   calculateCardClass(position: number): string {
     return `card-${position}`;
+  }
+
+
+  nameClassRandom(position: number): string {
+    return `name-${position}`;
   }
 
 

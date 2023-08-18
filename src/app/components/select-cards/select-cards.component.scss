@@ -57,20 +57,12 @@
 }
 
 .table {
-  &__main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 70%;
-    width: 100vw;
-  }
-
-  &__section {
-    display: flex;
-    justify-content: center;
-    width: 100vw;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 70%;
+  width: 100vw;
 
   &__container {
     display: flex;
@@ -108,100 +100,143 @@
   }
 }
 
-.revealed-style {
-  background-color: lightblue;
-  color: darkblue;
-}
+//Estilos para los botones de revelar y reiniciar
 
+.votes {
+  &__button {
+    position: absolute;
+    top: 45%;
+    left: 31%;
+    height: 40px;
+    width: 200px;
+    padding: 0px 24px;
+    border-radius: 50px;
+    background: #6429cd;
+    color: white;
+    cursor: pointer;
 
-.selected-card-content {
-  width: 35px;
-  height: 60px;
-  border-radius: 7px;
-  border: 1px solid #bb65ff;
-  background: #bb65ff;
-  color: #bb65ff;
+    &:hover {
+      transition: ease-in-out 0.3s;
+      transform: scale(1.1);
+    }
+  }
 
-  /* inner + shadow/04 */
-  box-shadow: 0px 0px 6px 0px rgba(189, 189, 255, 0.6) inset,
-    0px 5px 10px 0px rgba(100, 41, 205, 0.6);
-}
+  &__waiting {
+    display: flex;
+    position: absolute;
+    left: 31%;
+    top: 40%;
+    gap: 5px;
+    width: 200px;
+    height: 200px;
 
-// Estilo para cuando la carta está revelada
-.revealed-style {
-  color: red;
-  background-color: yellow;
-}
+    &-circle {
+      border: 6px solid #6429cd;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      animation-duration: 2s;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+      animation-delay: 0.4s;
 
-// Estilos personalizados para cada carta basados en las clases generadas
-.card-0 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-}
+      &:nth-child(1) {
+        animation-name: moveOne;
+      }
 
-.card-1 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-}
+      &:nth-child(2) {
+        animation-name: moveTwo;
+      }
 
-.card-2 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-}
+      &:nth-child(3) {
+        animation-name: moveThree;
+      }
 
-.card-3 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-}
-
-.card-4 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-}
-
-.card-5 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-}
-
-.card-6 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-}
-
-/* .votos {
-  top: 39%;
-  left: 47%;
-  position: relative;
-} */
-
-
-.cambiar {
-  position:absolute;
-  top: 45%;
-  left: 31%;
-  height: 40px;
-  width: 200px;
-  padding: 0px 24px;
-  border-radius: 50px;
-  background: #6429cd;
-  color: white;
-  cursor: pointer;
-
-  &:hover {
-
-    transition: ease-in-out 0.3s;
-    transform: scale(1.1);
-
+      &:nth-child(4) {
+        animation-name: moveDown1Up2;
+      }
+    }
   }
 }
+
+@keyframes moveOne {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(160px);
+  }
+}
+
+@keyframes moveTwo {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(60px);
+  }
+  75% {
+    transform: translateX(160px);
+  }
+}
+
+@keyframes moveThree {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-60px);
+  }
+  75% {
+    transform: translateX(-160px);
+  }
+}
+
+@keyframes moveDown1Up2 {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-160px);
+  }
+
+}
+
+//Estilos para el nombre del admin corto
+
+.admin {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &-compact {
+    padding: 15px;
+    border-radius: 100px;
+    background: #bdbdff;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 21px;
+    color: #330072;
+    text-transform: uppercase;
+    margin-top: 30px;
+  }
+
+  &-name {
+    color: #fff;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%;
+    margin-top: 2px;
+  }
+}
+
+//Estilos para las cards que se cuentan
 
 .count__card {
   display: flex;
@@ -227,6 +262,7 @@
   border: 1px solid #6429cd;
   box-shadow: 0px 0px 6px 0px rgba(189, 189, 255, 0.6) inset,
     0px 5px 10px 0px rgba(100, 41, 205, 0.6);
+  animation: fadeBorder 2s ease-in;
 
   &__value {
     color: #fff;
@@ -234,6 +270,7 @@
     font-style: normal;
     font-weight: 700;
     line-height: 140%; /* 29.4px */
+    animation: fadeText 2s ease-in;
   }
 
   &__count {
@@ -242,8 +279,81 @@
     font-style: normal;
     font-weight: 400;
     line-height: 140%; /* 22.4px */
+    animation: fadeText 2s ease-in;
   }
 }
+
+.selected-card-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 60px;
+  border-radius: 7px;
+  border: 1px solid #bb65ff;
+  background: #bb65ff;
+  color: #bb65ff;
+
+  /* inner + shadow/04 */
+  box-shadow: 0px 0px 6px 0px rgba(189, 189, 255, 0.6) inset,
+    0px 5px 10px 0px rgba(100, 41, 205, 0.6);
+}
+
+// Estilo para cuando la carta está revelada
+.revealed-style {
+  color: #fff;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 140%;
+  background-color: transparent;
+}
+
+// Estilos personalizados para cada carta basados en las clases generadas
+.card-0 {
+  position: absolute;
+  left: 29%;
+  top: 39.1%;
+}
+
+.card-1 {
+  position: absolute;
+  left: 39.1%;
+  top: 61%;
+}
+
+.card-2 {
+  position: absolute;
+  position: absolute;
+  left: 59.1%;
+  top: 61%;
+}
+
+.card-3 {
+  position: absolute;
+  left: 70%;
+  top: 39.1%;
+}
+
+.card-4 {
+  position: absolute;
+  left: 59.1%;
+  top: 12%;
+}
+
+.card-5 {
+  position: absolute;
+  left: 49.1%;
+  top: 12%;
+}
+
+.card-6 {
+  position: absolute;
+  left: 39.1%;
+  top: 12%;
+}
+
+//Estilos para el promedio
 
 .average {
   display: flex;
@@ -257,6 +367,7 @@
     font-style: normal;
     font-weight: 400;
     line-height: 140%; /* 22.4px */
+    animation: fadeText 2s ease-in;
   }
 
   &__value {
@@ -265,5 +376,45 @@
     font-style: normal;
     font-weight: 700;
     line-height: 100%; /* 36px */
+    animation: fadeText 2s ease-in;
+  }
+}
+
+//Animaciones
+
+@keyframes fadeBorder {
+  0% {
+    opacity: 0;
+    border: transparent;
+    transform: translateY(-20px);
+  }
+
+  50% {
+    box-shadow: 0px 0px 6px 0px rgba(245, 245, 245, 0.6) inset,
+      0px 5px 10px 0px rgba(255, 255, 255, 0.6);
+    border: 1px solid #ffffff;
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeText {
+  0% {
+    opacity: 0;
+    color: transparent;
+    transform: translateY(-20px);
+  }
+
+  /* 50% {
+    color: transparent;
+
+  } */
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
