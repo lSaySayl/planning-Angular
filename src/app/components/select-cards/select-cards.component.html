@@ -17,14 +17,15 @@
           <section class="votes">
             <button
               class="votes__button"
-              (click)="toggleButton()"
+              (click)="revealCards()"
               *ngIf="!isGameStarted && !isWaiting"
             >
               Revelar cartas
             </button>
             <button
               class="votes__button"
-              (click)="toggleButton()"
+              (click)="newVote()"
+
               *ngIf="isGameStarted && !isWaiting"
             >
               Nueva votación
@@ -60,7 +61,7 @@
 </p>
   </section>
 
-  <section class="count__card" *ngIf="isRevealed && cardCounts.length >= 0">
+  <section class="count__card" *ngIf="isRevealed && cardCounts.length > 0">
     <section class="cards__container" *ngFor="let card of cardCounts">
       <section class="card">
         <p class="card__value">{{ card.key }}</p>

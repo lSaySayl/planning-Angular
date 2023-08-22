@@ -20,6 +20,8 @@ export class PokerTableComponent {
   inputCreatePlayer: string = '';
   isPlayer: boolean = false;
   show: boolean = false;
+  isCardSelected: boolean = false;
+  isAdminProcessing: boolean = false
   /* selectedCardValues: number[] = []; */
 
   //Propiedad para almacenar las cartas
@@ -66,14 +68,22 @@ export class PokerTableComponent {
   chooseCard(chosenCard: Card) {
     if (this.selectedCards.length < 7) {
       this.selectedCards.push(chosenCard); // Almacenar la carta seleccionada en el estado
+      this.isCardSelected = true;
+      setTimeout(() => {
+        this.isCardSelected = false;
+      }, 1000);
+
       this.store.dispatch(updateCard({ card: chosenCard })); //Despachamos
       console.log('Cartas seleccionadas:', this.selectedCards);
 
-      setTimeout(() => {
-        if (this.selectedCards.length == 7) {
-          this.router.navigate(['/admin']);
-        }
-      }, 9000);
+      if (this.selectedCards.length === 7) {
+        setTimeout(() => {
+          this.isAdminProcessing = true;
+          setTimeout(() => {
+            this.router.navigate(['/admin']);
+          }, 7000);
+        }, 1000);
+      }
     }
   }
 

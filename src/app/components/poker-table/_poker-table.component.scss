@@ -91,7 +91,6 @@
     border-radius: 276px;
 
     /* estilos para .table__container-one y .table__container-two ... */
-
     &-one {
       display: flex;
       justify-content: center;
@@ -100,15 +99,14 @@
       width: 555px;
       height: 298px;
       border: 2px solid #6429cd;
-      filter: drop-shadow(0px 12px 24px rgba(100, 41, 205, 0.6));
+      box-shadow: inset 0px 0px 20px rgba(189, 189, 255, 0.082);
       border-radius: 276px;
     }
 
     &-two {
+      position: relative;
       width: 521px;
       height: 272px;
-      left: 479px;
-      top: 324px;
       border: 2px solid #6429cd;
       border-radius: 276px;
     }
@@ -314,4 +312,90 @@
 }
 
 
+
+.admin {
+  &__waiting {
+    display: flex;
+    position: absolute;
+    left: 31%;
+    top: 40%;
+    gap: 5px;
+    width: 200px;
+    height: 200px;
+
+    &-circle {
+      border: 6px solid #6429cd;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      animation-duration: 2s;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+      animation-delay: 0.4s;
+
+      &:nth-child(1) {
+        animation-name: moveOne;
+      }
+
+      &:nth-child(2) {
+        animation-name: moveTwo;
+      }
+
+      &:nth-child(3) {
+        animation-name: moveThree;
+      }
+
+      &:nth-child(4) {
+        animation-name: moveFour;
+      }
+    }
+  }
+}
+
+@keyframes moveOne {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(160px);
+  }
+}
+
+@keyframes moveTwo {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(60px);
+  }
+  75% {
+    transform: translateX(160px);
+  }
+}
+
+@keyframes moveThree {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-60px);
+  }
+  75% {
+    transform: translateX(-160px);
+  }
+}
+
+@keyframes moveFour {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-160px);
+  }
+
+}
 

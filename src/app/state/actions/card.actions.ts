@@ -7,6 +7,10 @@ export const updateCard = createAction(
   props<{ card: Card }>()
 );
 
+export const clearSelectedCards = createAction(
+  '[Card] Clear Selected Cards'
+);
+
 
 /* export const selectCardNumber = createAction(
   '[Card] Select Card Number',

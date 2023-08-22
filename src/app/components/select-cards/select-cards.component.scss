@@ -165,7 +165,7 @@
       }
 
       &:nth-child(4) {
-        animation-name: moveDown1Up2;
+        animation-name: moveFour;
       }
     }
   }
@@ -207,7 +207,7 @@
   }
 }
 
-@keyframes moveDown1Up2 {
+@keyframes moveFour {
   0%,
   100% {
     transform: translateX(0);

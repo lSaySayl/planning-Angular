@@ -12,6 +12,7 @@
   </section>
 
   <!-- Contenido específico para jugador -->
+
   <section *ngIf="isPlayer" class="table__main-container">
     <ng-container *ngIf="selectedCards.length > 0; else noCardsMessage">
       <ng-container *ngFor="let card of selectedCards; let i = index">
@@ -21,12 +22,13 @@
         ></app-card>
 
       </ng-container>
-      <!-- Revisar esta parte, pero no deberia ser así. -->
     </ng-container>
     <ng-template #noCardsMessage>
       <!-- Mostrar el mensaje "No hay cartas registradas" -->
       <p class="table__no-cards-message">No hay cartas registradas</p>
+      <!-- Mostrar el mensaje "Se ha escogido una carta" -->
     </ng-template>
+    <p class="table__no-cards-message" *ngIf="isCardSelected">Se ha escogido una carta</p>
 
     <section class="table__player-container">
       <section class="table__player-container-compact">
@@ -38,7 +40,14 @@
     <section class="table__section">
       <section class="table__container">
         <section class="table__container-one">
-          <section class="table__container-two"></section>
+          <section class="table__container-two">
+            <section class="admin__waiting" *ngIf="isAdminProcessing">
+              <span class="admin__waiting-circle"></span>
+              <span class="admin__waiting-circle"></span>
+              <span class="admin__waiting-circle"></span>
+              <span class="admin__waiting-circle"></span>
+            </section>
+          </section>
         </section>
       </section>
     </section>

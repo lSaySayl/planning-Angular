@@ -1,5 +1,5 @@
 import { createReducer,on } from "@ngrx/store"; //importando el reducer
-import { updateCard } from '../actions/card.actions';
+import { clearSelectedCards, updateCard } from '../actions/card.actions';
 import { Card } from "src/app/core/models/card.interface";
 
 export interface CardState {
@@ -25,7 +25,11 @@ export const cardReducer = createReducer(
       existingCard.ownerId === card.ownerId ? card : existingCard
     );
     return { ...state, cards: updatedCards, selectedCards: [...state.selectedCards, card] }; // Agregar la carta seleccionada
-  })
+  }),
+  on(clearSelectedCards, state => ({
+    ...state,
+    selectedCards: [] // Limpiar las cartas seleccionadas
+  }))
 
 
 //spread operator para crear un clon de mi estado,

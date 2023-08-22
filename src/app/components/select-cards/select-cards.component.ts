@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Card } from 'src/app/core/models/card.interface';
 import { SharedDataService } from 'src/app/services/shared-data.service';
+import { clearSelectedCards } from 'src/app/state/actions/card.actions';
 import { CardState } from 'src/app/state/reducers/card.reducers';
 
 @Component({
@@ -23,8 +25,12 @@ export class SelectCardsComponent implements OnInit {
   inputCreatePlayer: string = '';
 
   //Inyectando el store y el servicio
-  constructor(private store: Store<{ cardReducer: CardState }>,
-    private sharedDataService: SharedDataService) {
+  constructor(
+    private store: Store<{ cardReducer: CardState }>,
+    private sharedDataService: SharedDataService,
+    private router: Router
+
+    ) {
     this.selectedCards$ = store.select(state => state.cardReducer.selectedCards);
   }
 
@@ -72,14 +78,25 @@ export class SelectCardsComponent implements OnInit {
   }
 
 
-  toggleButton(): void {
+  revealCards(): void {
     this.isWaiting = true;
-
     setTimeout(() => {
       this.isRevealed = !this.isRevealed;
       this.isWaiting = false;
       this.isGameStarted = true;
     }, 4000);
+  }
+
+  newVote(): void {
+    // Dispatch la acción para borrar las cartas seleccionadas
+    this.store.dispatch(clearSelectedCards());
+    this.isGameStarted = true;
+    this.isWaiting = true;
+
+    setTimeout(() => {
+
+      this.router.navigate(['/table']);
+    }, 2000);
   }
 
 
