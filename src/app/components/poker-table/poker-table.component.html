@@ -1,12 +1,13 @@
 <!-- <section [ngClass]="isPlayer ? 'player-content' : 'spectator-content'"> -->
 <section class="app-section">
   <section class="logo">
-    <img class="logo__image" src="../../../assets/img/ficha.svg" alt="" />
+    <img class="logo__image" src="../../../assets/img/ficha.svg" alt=""  />
     <p class="logo__text">{{ inputCreateGame }}</p>
 
     <section class="logo__info">
       <span class="logo__info-text">{{ inputCreatePlayer.slice(0, 2) }}</span>
-      <button class="logo__info-button">Invitar jugadores</button>
+      <button class="logo__info-button" (click)="modalGame()" >Invitar jugadores</button>
+      <app-game-invite-modal *ngIf="show" (closeModalEvent)="closeModalGame()"></app-game-invite-modal>
     </section>
   </section>
 

@@ -17,6 +17,8 @@ import { StoreModule } from '@ngrx/store';
 import { cardReducer } from './state/reducers/card.reducers';
 import { SelectCardsComponent } from './components/select-cards/select-cards.component';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { GameInviteModalComponent } from './components/game-invite-modal/game-invite-modal.component';
+
 
 
 @NgModule({
@@ -28,6 +30,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     PokerTableComponent,
     CardComponent,
     SelectCardsComponent,
+    GameInviteModalComponent
   ],
   imports: [
     BrowserModule,

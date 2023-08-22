@@ -5,7 +5,8 @@
 
     <section class="logo__info">
       <span class="logo__info-text">CA</span>
-      <button class="logo__info-button">Invitar jugadores</button>
+      <button class="logo__info-button" (click)="modalGame()">Invitar jugadores</button>
+      <app-game-invite-modal *ngIf="show" (closeModalEvent)="closeModalGame()"></app-game-invite-modal>
     </section>
   </section>
 

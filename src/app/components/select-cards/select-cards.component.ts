@@ -16,17 +16,20 @@ export class SelectCardsComponent implements OnInit {
   isRevealed = false; // variable para cambiar colores en las cartas
   isWaiting: boolean = false; //variable para esperar el conteo
   isGameStarted: boolean = false; //variable para ocultar boton y generar uno nuevo
+  show: boolean = false; //variable para mostrar modal
 
-  //Capturando inputs de la creación de la sala y el
+  //Capturando inputs de la creación de la sala y el jugador
   inputCreateGame: string = '';
   inputCreatePlayer: string = '';
 
-
+  //Inyectando el store y el servicio
   constructor(private store: Store<{ cardReducer: CardState }>,
     private sharedDataService: SharedDataService) {
     this.selectedCards$ = store.select(state => state.cardReducer.selectedCards);
   }
 
+
+  //Inicializando el componente
   ngOnInit(): void {
     this.inputCreateGame = this.sharedDataService.getInputCreateGame();
     this.inputCreatePlayer = this.sharedDataService.getInputCreatePlayer();
@@ -35,9 +38,8 @@ export class SelectCardsComponent implements OnInit {
     });
   }
 
-  //funcion para contar las cartas repetidas
 
-  averageValue: number = 0; //
+  //funcion para contar las cartas repetidas
 
   calculateCardCounts(cards: Card[]): void {
     const tempCounts: Map<number, number> = new Map<number, number>();
@@ -57,6 +59,8 @@ export class SelectCardsComponent implements OnInit {
     this.calculateAverage(totalSum, cards.length); // Calcular el promedio
   }
 
+  averageValue: number = 0; //
+
   //función para calcular el promedio
 
   calculateAverage(totalSum: number, totalCount: number): void {
@@ -68,9 +72,6 @@ export class SelectCardsComponent implements OnInit {
   }
 
 
-
-
-
   toggleButton(): void {
     this.isWaiting = true;
 
@@ -78,8 +79,9 @@ export class SelectCardsComponent implements OnInit {
       this.isRevealed = !this.isRevealed;
       this.isWaiting = false;
       this.isGameStarted = true;
-    }, 4000); // Cambié el tiempo a 4000 para que sea 4 segundos
+    }, 4000);
   }
+
 
   //función para clases
 
@@ -91,6 +93,17 @@ export class SelectCardsComponent implements OnInit {
     const delay = index * 0.3; //Valor del retraso
     return `${delay}s`;
   }
+
+
+  modalGame(): void {
+    this.show = true;
+  }
+
+  closeModalGame(): void {
+    this.show = false;
+  }
+
+
 
 
 

@@ -19,6 +19,7 @@ export class PokerTableComponent {
   inputCreateGame: string = '';
   inputCreatePlayer: string = '';
   isPlayer: boolean = false;
+  show: boolean = false;
   /* selectedCardValues: number[] = []; */
 
   //Propiedad para almacenar las cartas
@@ -84,6 +85,15 @@ export class PokerTableComponent {
 
   nameClassRandom(position: number): string {
     return `name-${position}`;
+  }
+
+
+  modalGame(): void {
+    this.show = true;
+  }
+
+  closeModalGame(): void {
+    this.show = false;
   }
 
 
