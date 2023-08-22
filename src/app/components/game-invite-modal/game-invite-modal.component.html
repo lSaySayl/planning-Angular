@@ -5,8 +5,8 @@
       <span class="modal__invite-close" (click)="closeModalGame()">X</span>
     </section>
     <section class="modal__copy">
-      <input class="modal__copy-input" type="text" value='http://localhost:4200/'>
-      <button class="modal__copy-button">Copiar link</button>
+      <input class="modal__copy-input" type="text" [value]="value">
+      <button class="modal__copy-button" [cdkCopyToClipboard]="value">Copiar link</button>
     </section>
   </section>
 </section>

@@ -73,7 +73,7 @@ export class PokerTableComponent {
         if (this.selectedCards.length == 7) {
           this.router.navigate(['/admin']);
         }
-      }, 4000);
+      }, 9000);
     }
   }
 
