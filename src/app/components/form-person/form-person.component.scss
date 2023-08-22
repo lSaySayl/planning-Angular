@@ -5,7 +5,7 @@
   width: 100%;
   top: 0;
   left: 0;
-  background-color:#ffffff0e;
+  background-color: #ffffff0e;
 }
 
 .modal {
@@ -80,7 +80,6 @@
       height: 40px;
       margin: 15px 0;
 
-
       &-label {
         font-style: normal;
         font-weight: 400;
@@ -90,19 +89,36 @@
       }
 
       &-input {
-        width: 20px;
+        position: relative;
+        padding: 10px;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        width: 25px;
         height: 20px;
-        background: rgba(100, 41, 205, 0.08);
+        border-radius: 100%;
         border: 1px solid #bb65ff;
-        border-radius: 100px;
-        margin: 15px 0;
-        color: #ffffff;
-        font-family: "Poppins";
-        font-style: normal;
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 140%;
+        outline: none;
         cursor: pointer;
+
+
+        &::before {
+          content: "";
+          display: block;
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          position: absolute;
+          transform: translate(-50%, -50%);
+          opacity: 0;
+        }
+
+        &:checked {
+          &::before {
+            opacity: 1;
+            background-color: #bb65ff;
+          }
+        }
       }
 
       &-container {
@@ -139,7 +155,3 @@
   }
 }
 
-
-.prueba {
-  background-color: red;
-}

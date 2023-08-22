@@ -48,7 +48,11 @@ export class FormPersonComponent {
       console.log(`Es jugador: ${isPlayer}`);
 
       // Después de establecer los valores, navegar a la siguiente ruta
-      this.router.navigate(['/table']);
+      if (isPlayer) {
+        this.router.navigate(['/table']);
+      } else {
+        this.router.navigate(['/admin']); // Reemplaza 'espectador' con la ruta adecuada
+      }
     }
   }
 
