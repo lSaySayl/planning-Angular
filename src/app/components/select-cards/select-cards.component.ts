@@ -13,18 +13,15 @@ import { CardState } from 'src/app/state/reducers/card.reducers';
   styleUrls: ['./select-cards.component.scss']
 })
 export class SelectCardsComponent implements OnInit {
-  selectedCards$: Observable<Card[]>; //observables para mis cartas selecionadas
+  selectedCards$: Observable<Card[]>; //observable para mis cartas selecionadas
   cardCounts: { key: number, value: number }[] = []; // array de objetos para contar las cartas
   isRevealed = false; // variable para cambiar colores en las cartas
   isWaiting: boolean = false; //variable para esperar el conteo
   isGameStarted: boolean = false; //variable para ocultar boton y generar uno nuevo
   show: boolean = false; //variable para mostrar modal
-
-  //Capturando inputs de la creación de la sala y el jugador
   inputCreateGame: string = '';
   inputCreatePlayer: string = '';
 
-  //Inyectando el store y el servicio
   constructor(
     private store: Store<{ cardReducer: CardState }>,
     private sharedDataService: SharedDataService,
@@ -35,7 +32,6 @@ export class SelectCardsComponent implements OnInit {
   }
 
 
-  //Inicializando el componente
   ngOnInit(): void {
     this.inputCreateGame = this.sharedDataService.getInputCreateGame();
     this.inputCreatePlayer = this.sharedDataService.getInputCreatePlayer();
@@ -46,7 +42,6 @@ export class SelectCardsComponent implements OnInit {
 
 
   //funcion para contar las cartas repetidas
-
   calculateCardCounts(cards: Card[]): void {
     const tempCounts: Map<number, number> = new Map<number, number>();
     let totalSum = 0; // Para almacenar la suma total de valores
@@ -66,6 +61,7 @@ export class SelectCardsComponent implements OnInit {
   }
 
   averageValue: number = 0; //
+
 
   //función para calcular el promedio
 

@@ -1,14 +1,22 @@
-<h2>Login de usuario</h2>
-<form [formGroup]="formLogin">
-    <section class="mb-3">
-        <label class="form-label">Email</label>
-        <input type="text" class="form-control" formControlName="email">
-    </section>
-    <section class="mb-3">
-        <label class="form-label">Password</label>
-        <input type="password" class="form-control" formControlName="password">
-    </section>
-    <button (click)="loginWithEmailAndPassword(formLogin)">Iniciar sesión</button>
-<button class="btn btn-info" (click)="loginWithGoogle()">Login With Google</button>
-</form>
+<form [formGroup]="formLogin" class="form">
+  <img class="form__img" src="../../../assets/img/logo.svg" alt="" routerLink="" />
 
+  <section>
+    <button class="form__button-google" (click)="loginWithGoogle()">
+      <span>G</span>
+      Inicia sesión con Google
+    </button>
+  </section>
+
+  <section class="form__field">
+    <label class="form__label">Correo</label>
+    <input type="email" class="form__input" formControlName="email" />
+  </section>
+  <section class="form__field">
+    <label class="form__label">Contraseña</label>
+    <input type="password" class="form__input" formControlName="password" />
+  </section>
+  <button (click)="loginWithEmailAndPassword(formLogin)" class="form__button-primary ">
+    Iniciar sesión
+  </button>
+</form>

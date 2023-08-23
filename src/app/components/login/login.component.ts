@@ -28,7 +28,7 @@ export class LoginComponent {
   loginWithGoogle(){
     this.authService.signInWithGoogle()
     .then((response: any )=> {
-      this.router.navigate(['/admin']);
+      this.router.navigate(['/game']);
       console.log(response);
     })
     .catch((error) => {
@@ -40,7 +40,7 @@ export class LoginComponent {
   loginWithEmailAndPassword(form: FormGroup) {
     this.authService.signInWithEmailAndPassword(form.value)
       .then((response: any) => {
-        this.router.navigate(['/admin']);
+        this.router.navigate(['/game']);
         console.log(response);
       })
       .catch((error) => {

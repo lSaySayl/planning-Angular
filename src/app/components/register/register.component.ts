@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -21,8 +21,12 @@ export class RegisterComponent {
 
   initializeFormLogin(): FormGroup {
     return this.formBuilder.group({
-      email: [''],
-      password: [''],
+      email: ['', [
+        Validators.required,
+      ]],
+      password: ['',[
+        Validators.required,
+      ]],
     });
   }
 
@@ -30,7 +34,7 @@ export class RegisterComponent {
     this.authService
       .registerWithEmailAndPassword(form.value)
       .then((response: any) => {
-        this.router.navigate(['/admin']);
+        this.router.navigate(['/login']);
         console.log(response);
       })
       .catch((error) => {

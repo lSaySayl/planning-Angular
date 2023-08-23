@@ -13,25 +13,19 @@ import { CardState } from 'src/app/state/reducers/card.reducers';
   styleUrls: ['./_poker-table.component.scss'],
 })
 export class PokerTableComponent {
-
-
-  //Capturando input de la creación de sala
   inputCreateGame: string = '';
   inputCreatePlayer: string = '';
   isPlayer: boolean = false;
   show: boolean = false;
   isCardSelected: boolean = false;
-  isAdminProcessing: boolean = false
-  /* selectedCardValues: number[] = []; */
+  isAdminProcessing: boolean = false;
 
   //Propiedad para almacenar las cartas
-
   cards: any[] = [];
 
   // Propiedad para almacenar las cartas seleccionadas por los jugadores
   selectedCards: Card[] = [];
 
-  //Llamando mis servicios
   constructor(
     private sharedDataService: SharedDataService,
     private store: Store<{ cardReducer: CardState }>,
@@ -43,7 +37,6 @@ export class PokerTableComponent {
     this.inputCreateGame = this.sharedDataService.getInputCreateGame();
     this.inputCreatePlayer = this.sharedDataService.getInputCreatePlayer();
     this.isPlayer = this.sharedDataService.getIsPlayer();
-    /*  this.cards = this.cardService.generateRandomCards(); */
 
     // Generar las cartas iniciales si es un espectador
     if (this.isPlayer) {
@@ -52,8 +45,8 @@ export class PokerTableComponent {
     console.log(this.cards);
   }
 
-   // Función para generar cartas aleatorias
-   generateRandomCards(numberOfCards: number): Card[] {
+  // Función para generar cartas aleatorias
+  generateRandomCards(numberOfCards: number): Card[] {
     const cards: Card[] = [];
     for (let i = 0; i < numberOfCards; i++) {
       const randomValue = Math.floor(Math.random() * 50) + 1;
@@ -92,11 +85,9 @@ export class PokerTableComponent {
     return `card-${position}`;
   }
 
-
   nameClassRandom(position: number): string {
     return `name-${position}`;
   }
-
 
   modalGame(): void {
     this.show = true;
@@ -105,10 +96,4 @@ export class PokerTableComponent {
   closeModalGame(): void {
     this.show = false;
   }
-
-
-
-
-
 }
-

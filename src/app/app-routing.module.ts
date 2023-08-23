@@ -7,17 +7,18 @@ import { HomeComponent } from './pages/home/home.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 
+
 const routes: Routes = [
-  {path: "", component:HomeComponent},
-  {path: "register", component:RegisterComponent},
-  {path: "login", component:LoginComponent},
-  {path: "game", component:FormToCreateGameComponent},
-  {path: "table", component:PokerTableComponent},
-  { path: 'admin', component: SelectCardsComponent }
+  { path: '', component: HomeComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'game', component: FormToCreateGameComponent },
+  { path: 'table', component: PokerTableComponent },
+  { path: 'admin', component: SelectCardsComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
