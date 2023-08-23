@@ -1,0 +1,12 @@
+<h2>Registro de usuario</h2>
+<form [formGroup]="formRegister">
+    <section class="mb-3">
+        <label class="form-label">Email</label>
+        <input type="text" class="form-control" formControlName="email">
+    </section>
+    <section class="mb-3">
+        <label class="form-label">Password</label>
+        <input type="password" class="form-control" formControlName="password">
+    </section>
+    <button (click)="registerWithEmailAndPassword(formRegister)">Registrar</button>
+</form>

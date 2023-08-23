@@ -17,6 +17,12 @@ import { SelectCardsComponent } from './components/select-cards/select-cards.com
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { GameInviteModalComponent } from './components/game-invite-modal/game-invite-modal.component';
 import {ClipboardModule} from '@angular/cdk/clipboard';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import {AngularFireModule} from '@angular/fire/compat';
+import {AngularFireAuthModule} from '@angular/fire/compat/auth';
+import { environment } from 'src/environments/environment';
+import { HomeComponent } from './pages/home/home.component';
 
 
 
@@ -29,7 +35,10 @@ import {ClipboardModule} from '@angular/cdk/clipboard';
     PokerTableComponent,
     CardComponent,
     SelectCardsComponent,
-    GameInviteModalComponent
+    GameInviteModalComponent,
+    LoginComponent,
+    RegisterComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +49,9 @@ import {ClipboardModule} from '@angular/cdk/clipboard';
     MatButtonModule,
     StoreModule.forRoot({ 'cardReducer':cardReducer }),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
-    ClipboardModule
+    ClipboardModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule
   ],
 
   providers: [],
