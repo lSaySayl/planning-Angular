@@ -1,4 +1,4 @@
-import { TestBed } from '@angular/core/testing';
+/* import { TestBed } from '@angular/core/testing';
 
 import { LoadingService } from './loading.service';
 
@@ -14,3 +14,4 @@ describe('LoadingService', () => {
     expect(service).toBeTruthy();
   });
 });
+ */

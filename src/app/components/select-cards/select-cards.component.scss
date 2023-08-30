@@ -1,0 +1,432 @@
+.admin__section {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+
+}
+
+.logo {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+
+  &__text {
+    color: #fff;
+    font-family: Poppins;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 700;
+    margin-left: 10%;
+  }
+
+  &__info {
+    min-width: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    &-text {
+      padding: 10px;
+      border-radius: 50%;
+      background: #bdbdff;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 18px;
+      color: #330072;
+      line-height: 140%;
+      text-transform: uppercase;
+    }
+
+    &-button {
+      color: #f6f7fc;
+      text-align: center;
+      font-family: Poppins;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 140%;
+      padding: 5px 10px;
+      border-radius: 50px;
+      border: 1px solid #f6f7fc;
+      cursor: pointer;
+
+      &:hover {
+        transition: 0.3s ease;
+        background-color:#f6f7fc;
+        color: #330072;
+        filter: drop-shadow(0px 0px 15px #f2f2f25c);
+
+      }
+    }
+  }
+}
+
+.table {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 70%;
+  width: 100vw;
+
+  &__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    width: 603px;
+    height: 345px;
+    border: 2px solid #6429cd;
+    box-shadow: inset 0px 0px 20px rgba(189, 189, 255, 0.2);
+    filter: drop-shadow(0px 0px 15px #6429cd);
+    border-radius: 276px;
+
+    /* estilos para .table__container-one y .table__container-two ... */
+
+    &-one {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box;
+      width: 555px;
+      height: 298px;
+      border: 2px solid #6429cd;
+      box-shadow: inset 0px 0px 20px rgba(189, 189, 255, 0.082);
+      border-radius: 276px;
+    }
+
+    &-two {
+      position: relative;
+      width: 521px;
+      height: 272px;
+      border: 2px solid #6429cd;
+      border-radius: 276px;
+    }
+  }
+}
+
+//Estilos para los botones de revelar y reiniciar
+
+.votes {
+  &__button {
+    position: absolute;
+    top: 45%;
+    left: 31%;
+    height: 40px;
+    width: 200px;
+    padding: 0px 24px;
+    border-radius: 50px;
+    background: #6429cd;
+    color: white;
+    cursor: pointer;
+
+    &:hover {
+      transition: ease-in-out 0.3s;
+      transform: scale(1.1);
+    }
+  }
+
+  &__waiting {
+    display: flex;
+    position: absolute;
+    left: 31%;
+    top: 40%;
+    gap: 5px;
+    width: 200px;
+    height: 200px;
+
+    &-circle {
+      border: 6px solid #6429cd;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      animation-duration: 2s;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+      animation-delay: 0.4s;
+
+      &:nth-child(1) {
+        animation-name: moveOne;
+      }
+
+      &:nth-child(2) {
+        animation-name: moveTwo;
+      }
+
+      &:nth-child(3) {
+        animation-name: moveThree;
+      }
+
+      &:nth-child(4) {
+        animation-name: moveFour;
+      }
+    }
+  }
+}
+
+@keyframes moveOne {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(160px);
+  }
+}
+
+@keyframes moveTwo {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(60px);
+  }
+  75% {
+    transform: translateX(160px);
+  }
+}
+
+@keyframes moveThree {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-60px);
+  }
+  75% {
+    transform: translateX(-160px);
+  }
+}
+
+@keyframes moveFour {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-160px);
+  }
+
+}
+
+//Estilos para el nombre del admin corto
+
+.admin {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &-compact {
+    padding: 15px;
+    border-radius: 100px;
+    background: #bdbdff;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 21px;
+    color: #330072;
+    text-transform: uppercase;
+    margin-top: 30px;
+  }
+
+  &-name {
+    color: #fff;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%;
+    margin-top: 2px;
+  }
+}
+
+//Estilos para las cards que se cuentan
+
+.count__card {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  width: 100vw;
+}
+
+.cards__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 90px;
+  border-radius: 7px;
+  border: 1px solid #6429cd;
+  box-shadow: 0px 0px 6px 0px rgba(189, 189, 255, 0.6) inset,
+    0px 5px 10px 0px rgba(100, 41, 205, 0.6);
+  animation: fadeBorder 2s ease-in;
+
+  &__value {
+    color: #fff;
+    font-size: 21px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 140%; /* 29.4px */
+    animation: fadeText 2s ease-in;
+  }
+
+  &__count {
+    color: #fff;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%; /* 22.4px */
+    animation: fadeText 2s ease-in;
+  }
+}
+
+.selected-card-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 60px;
+  border-radius: 7px;
+  border: 1px solid #bb65ff;
+  background: #bb65ff;
+  color: #bb65ff;
+
+  /* inner + shadow/04 */
+  box-shadow: 0px 0px 6px 0px rgba(189, 189, 255, 0.6) inset,
+    0px 5px 10px 0px rgba(100, 41, 205, 0.6);
+}
+
+// Estilo para cuando la carta está revelada
+.revealed-style {
+  color: #fff;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 140%;
+  background-color: transparent;
+}
+
+// Estilos personalizados para cada carta basados en las clases generadas
+.card-0 {
+  position: absolute;
+  left: 29%;
+  top: 39.1%;
+}
+
+.card-1 {
+  position: absolute;
+  left: 39.1%;
+  top: 61%;
+}
+
+.card-2 {
+  position: absolute;
+  position: absolute;
+  left: 59.1%;
+  top: 61%;
+}
+
+.card-3 {
+  position: absolute;
+  left: 70%;
+  top: 39.1%;
+}
+
+.card-4 {
+  position: absolute;
+  left: 59.1%;
+  top: 12%;
+}
+
+.card-5 {
+  position: absolute;
+  left: 49.1%;
+  top: 12%;
+}
+
+.card-6 {
+  position: absolute;
+  left: 39.1%;
+  top: 12%;
+}
+
+//Estilos para el promedio
+
+.average {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: 40px;
+  &__text {
+    color: #fff;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%; /* 22.4px */
+    animation: fadeText 2s ease-in;
+  }
+
+  &__value {
+    color: #fff;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 100%; /* 36px */
+    animation: fadeText 2s ease-in;
+  }
+}
+
+//Animaciones
+
+@keyframes fadeBorder {
+  0% {
+    opacity: 0;
+    border: transparent;
+    transform: translateY(-20px);
+  }
+
+  50% {
+    box-shadow: 0px 0px 6px 0px rgba(245, 245, 245, 0.6) inset,
+      0px 5px 10px 0px rgba(255, 255, 255, 0.6);
+    border: 1px solid #ffffff;
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeText {
+  0% {
+    opacity: 0;
+    color: transparent;
+    transform: translateY(-20px);
+  }
+
+  /* 50% {
+    color: transparent;
+
+  } */
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

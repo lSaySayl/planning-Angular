@@ -1,0 +1,15 @@
+
+
+<form [formGroup]="formRegister" class="form">
+  <img class="form__img" src="../../../assets/img/logo.svg" alt="" routerLink="">
+
+  <section class="form__field">
+    <label class="form__label">Correo</label>
+    <input type="email" class="form__input" formControlName="email" placeholder="ingrese su correo">
+  </section>
+  <section class="form__field">
+    <label class="form__label">Contraseña</label>
+    <input type="password" class="form__input" formControlName="password" placeholder="ingrese su contraseña">
+  </section>
+  <button (click)="registerWithEmailAndPassword(formRegister)" class="form__button">Registrar</button>
+</form>
